@@ -1,7 +1,15 @@
 # KalilDev's dotfiles
 
+## TODO
+* Find an good bluetooth manager
+* Find an good network manager
+* Add screenshots to the readme
+* GTK and Qt themes
+* Icon theme
+* Make an custom rofi theme
+
 ## Dependencies
-These packages need to be installed for the configuration to work properly.
+These packages need to be installed for the configurations to work properly.
 
 ### Workflow deps (All optional)
 ```
