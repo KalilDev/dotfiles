@@ -1,0 +1,24 @@
+set
+pl
+sort
+pl_sort
+pl_sort -tracknumber
+Sort
+sort -tracknumber
+reshuffle
+shuffle
+pl-import /home/pedrokalil/Música/Pink Floyd - Wish You Were Here/Pink Floyd - Wish You Were Here.m3u8
+pl-import /home/pedrokalil/Música/Pink Floyd - The Wall/Pink Floyd - The Wall.m3u8
+pl-rename Pink Floyd - The Division Bell
+help
+pl-remove
+pl-import /home/pedrokalil/Música/Pink Floyd - The Division Bell/PinkFloyd - The Division Bell.m3u8
+pl-import /home/pedrokalil/Música/Pink Floyd - The Dark Side of the Moon/Pink Floyd - Dark Side Of The Moon.m3u8
+pl-import /home/pedrokalil/Música/Pink Floyd - Animals/Pink Floyd - Animals.m3u8
+pl-import /home/pedrokalil/Música/Kendrick Lamar - good kid, m.A.A.d city/Kendrick Lamar - good kid, m.A.A.d city.m3u8
+pl-import /home/pedrokalil/Música/Kendrick Lamar - DAMN. COLLECTORS EDITION/Kendrick Lamar - DAMN. COLLECTORS EDITION.m3u8
+pl-import /home/pedrokalil/Música/Black Sabbath - The Ultimate Collection/Black Sabbath - The Ultimate Collection.m3u8
+pl-import /home/pedrokalil/Música/A/A.m3u8
+pl-import '/home/pedrokalil/Música/A/A.m3u8' 
+pl-import ~/music/A/A.m3u8
+pl-import

@@ -43,6 +43,7 @@ tar
 xz
 tmux
 tree
+discord
 ```
 
 ### Primary deps
