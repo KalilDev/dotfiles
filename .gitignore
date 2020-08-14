@@ -2,3 +2,15 @@
 .config/spicetify/Backup/
 .config/cmus/playlists/
 .config/cmus/search-history
+
+
+get_focused_node/build
+get_focused_node/CMakeFiles
+get_focused_node/_deps
+get_focused_node/include
+get_focused_node/src
+get_focused_node/CMakeCache.txt
+get_focused_node/cmake_install.cmake
+get_focused_node/main
+get_focused_node/Makefile
+get_focused_node/.vscode

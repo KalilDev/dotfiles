@@ -72,6 +72,10 @@ liri-calculator
 swaylock (swaylock-effects-git)
 alsa-utils [amixer]
 pulseaudio-ctl [pactl]
+grim
+slurp
+jq
+getFocusedNode (distributed on this repo)
 playerctl
 swayidle
 flashfocus (flashfocus-git)

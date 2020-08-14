@@ -66,6 +66,7 @@ set $fancySwayLock swaylock \
 set $pactlSink @DEFAULT_SINK@
 set $getSinkVolume amixer sget Master | sed -En 's/.*\[([0-9]+)%\].*/\1/p' | head -1
 set $getSinkMuteOrVolume amixer sget Master | sed -En '/\[on\]/ s/.*\[([0-9]+)%\].*/\1/ p; /\[off\]/ s/.*/0/p' | head -1
+set $toClipboard - | wl-copy
 
 # Keybind commands
 set $volPlus exec --no-startup-id pactl set-sink-volume $pactlSink +5% && $getSinkVolume > $SWAYSOCK.wob
@@ -75,6 +76,10 @@ set $mediaStop exec playerctl stop
 set $mediaPrev exec playerctl previous
 set $mediaToggle exec playerctl play-pause
 set $mediaNext exec playerctl next
+set $captureAll exec grim
+set $captureFocused exec grim -g "$(swaymsg -t get_tree | getFocusedNode "slurp-rect")"
+set $captureMonitor exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name')
+set $captureRegion exec grim -g "$(slurp)"
 
 ### Output configuration
 #
@@ -318,6 +323,29 @@ mode "resize" {
     bindsym $mod+r mode "default"
 }
 bindsym $mod+r mode "resize"
+
+#
+# Screenshotting
+#
+mode "screenshot" {
+    # Capture to clipboard
+    bindsym q $captureAll $toClipboard
+    bindsym w $captureFocused $toClipboard && flash_window
+    bindsym e $captureMonitor $toClipboard
+    bindsym r $captureRegion $toClipboard
+
+    # Capture to file with Shift
+    bindsym Shift+q $captureAll
+    bindsym Shift+w $captureFocused && flash_window
+    bindsym Shift+e $captureMonitor
+    bindsym Shift+r $captureRegion
+
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+c mode "default"
+}
+bindsym $mod+c mode "screenshot"
 
 # Styles
 # According to https://material.io/design/layout/responsive-layout-grid.html
