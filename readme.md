@@ -7,6 +7,15 @@
 * GTK and Qt themes
 * Icon theme
 * Make an custom rofi theme
+* rot8 for auto-rotation
+* IME on waybar
+* Laptop function keys
+* maybe clamshell mode
+* maybe scale the monitor for 1:1 on the laptop and monitor screens
+* gammastep
+* move wallpaper to .config
+* an session manager
+* brightness
 
 ## Dependencies
 These packages need to be installed for the configurations to work properly.
