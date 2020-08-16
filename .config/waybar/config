@@ -56,8 +56,8 @@
         "format-alt": "bluetooth: {status}",
         "interval": 30,
         "format-icons": {
-            "enabled": "",
-            "disabled": ""
+            "enabled": "",
+            "disabled": ""
         },
         "tooltip-format": "{status}"
     },

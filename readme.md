@@ -1,7 +1,6 @@
 # KalilDev's dotfiles
 
 ## TODO
-* Find an good bluetooth manager
 * Find an good network manager
 * Add screenshots to the readme
 * GTK and Qt themes
@@ -104,5 +103,6 @@ pango
 ```
 otf-font-awesome
 pavucontrol
+blueman
 wlogout
 ```
