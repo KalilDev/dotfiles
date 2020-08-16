@@ -1,0 +1,45 @@
+* {
+    background-image: none;
+}
+window {
+    background-image: url("/home/pedrokalil/.config/wallpaper/wall.png");
+    background-size: cover;
+}
+button {
+    background-color: #1f1820;
+    border-width: 0px;
+    border-radius: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 25%;
+    color: rgba(255,255,255,0.8);
+}
+
+button:active, button:hover {
+    background-color: rgba(31, 24, 32,0.9);
+    outline-style: none;
+}
+
+#lock {
+    background-image: url("/usr/share/wlogout/icons/logout.png");
+}
+
+#logout {
+    background-image: url("/usr/share/wlogout/icons/logout.png");
+}
+
+#suspend {
+    background-image: url("/usr/share/wlogout/icons/suspend.png");
+}
+
+#hibernate {
+    background-image: url("/usr/share/wlogout/icons/hibernate.png");
+}
+
+#shutdown {
+    background-image: url("/usr/share/wlogout/icons/shutdown.png");
+}
+
+#reboot {
+    background-image: url("/usr/share/wlogout/icons/reboot.png");
+}
