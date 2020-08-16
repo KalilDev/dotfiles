@@ -120,6 +120,7 @@ input * {
 ### Init programs
 exec_always --no-startup-id flashfocus
 exec --no-startup-id autotiling
+exec --no-startup-id blueman-applet
 
 ### Key bindings
 
