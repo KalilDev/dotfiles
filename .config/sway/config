@@ -77,7 +77,7 @@ set $mediaPrev exec playerctl previous
 set $mediaToggle exec playerctl play-pause
 set $mediaNext exec playerctl next
 set $captureAll exec grim
-set $captureFocused exec grim -g "$(swaymsg -t get_tree | getFocusedNode "slurp-rect")"
+set $captureFocused exec grim -g "$(swaymsg -t get_tree | getFocusedNode -s)"
 set $captureMonitor exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name')
 set $captureRegion exec grim -g "$(slurp)"
 
