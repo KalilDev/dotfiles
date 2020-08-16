@@ -6,7 +6,7 @@
 
 ## Pre-initialization
 # Create the socket used by wob and start it
-set $fancyWob wob --bar-color "#FF991b4b" --border-color "#FF650024" --background-color "#849B4DCB" -H 30 -b 0 -p 5 -M 0 -a top
+set $fancyWob wob --bar-color "#E66A1B9A" --border-color "#FF650024" --background-color "#E69A1B8B" -H 30 -b 0 -p 5 -M 0 -a top
 exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | clampstdout | $fancyWob
 
 ### Variables
@@ -29,38 +29,7 @@ set $menu rofi -show-icons -show drun | xargs swaymsg exec --
 set $dmenu rofi -show run | xargs swaymsg exec --
 set $musicLibrary swaymsg exec "alacritty -e 'cmus'"
 set $calculator swaymsg exec liri-calculator
-set $fancySwayLock swaylock \
-	--screenshots \
-	--clock \
-	--effect-blur 7x5 \
-	--effect-vignette 0.5:0.5 \
-	--indicator \
-	--indicator-radius 100 \
-	--indicator-thickness 7 \
-	--font 'monospace' \
-	--inside-color cd53ba84 \
-	--ring-color cd53ba84 \
-	--inside-clear-color b4d83474 \
-	--ring-clear-color a8c62d84 \
-	--inside-ver-color 338cdd74 \
-	--ring-ver-color 2b7aca84 \
-	--inside-wrong-color c73f3074 \
-	--ring-wrong-color b6372a84 \
-	--bs-hl-color a8c62d84 \
-	--key-hl-color 991b4b \
-	--line-color 00000000 \
-	--line-clear-color 00000000 \
-	--line-caps-lock-color 00000000 \
-	--line-ver-color 00000000 \
-	--line-wrong-color 00000000 \
-	--separator-color 00000000 \
-	--text-color 000000DE \
-	--text-clear-color 000000DE \
-	--text-ver-color 000000DE \
-	--text-wrong-color 000000DE \
-	--ring-color ce5076 \
-	--grace 100 \
-	--fade-in 0.2;
+set $fancySwayLock $HOME/.config/sway/swaylock.sh
 
 # Helpers
 set $pactlSink @DEFAULT_SINK@
