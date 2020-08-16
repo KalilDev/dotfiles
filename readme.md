@@ -42,6 +42,7 @@
 * move wallpaper to .config
 * an session manager
 * brightness
+* wlogout custom theme
 
 ## Dependencies
 These packages need to be installed for the configurations to work properly.

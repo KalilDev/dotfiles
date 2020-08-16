@@ -2,6 +2,7 @@
 .config/spicetify/Backup/
 .config/cmus/playlists/
 .config/cmus/search-history
+.config/sway/config
 
 
 get_focused_node/build
