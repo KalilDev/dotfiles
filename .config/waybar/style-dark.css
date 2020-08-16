@@ -22,6 +22,7 @@ window#waybar {
     transition: all;
     transition-duration: 200ms;
     border: 2px solid transparent;
+    color: rgba(0,0,0,0.8);
 }
 
 #workspaces button:hover {
@@ -31,18 +32,18 @@ window#waybar {
 }
 
 #workspaces button.focused {
-    color:  #883997;
+    color:  #6A1B9A;
     border: 2px solid transparent;
-    border-right: 2px solid  #883997;
+    border-right: 2px solid  #6A1B9A;
 }
 #workspaces button.focused:hover {
     border: 2px solid transparent;
-    border-right: 2px solid #883997;
+    border-right: 2px solid #6A1B9A;
     border-radius: 8px;
 }
 
 #mode {
-    background: #883997;
+    background: #ee98fb;
     color: rgba(0,0,0,0.87);
     border-bottom: 3px solid #953977;
 }
