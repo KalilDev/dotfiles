@@ -51,9 +51,8 @@ set $captureMonitor exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(
 set $captureRegion exec grim -g "$(slurp)"
 
 ### Output configuration
-#
-# Seaside Dark background. TODO: auto switch
-output * bg /home/pedrokalil/Downloads/seaside_dark_bg.png fill
+# Wallpaper
+output * bg $HOME/.config/wallpaper/wall.png fill
 
 #
 # Multi-display configuration:
