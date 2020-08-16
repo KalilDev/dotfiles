@@ -356,10 +356,10 @@ smart_borders on
 
 default_border pixel 2
 
-# class                 border    backgr.   text      indicator child_border
-client.focused          #691b99   #691b99   #DDDDDD   #DDDDDD   #691b99
+# class                  border    backgr.   text      indicator child_border
+client.focused           #9A1B8B   #9A1B8B   #DDDDDD   #DDDDDD   #CE53BB
 #client.focused_inactive #242424   #24242400 #24242400 #24242400 #24242400 
-client.unfocused        #151515   #151515   #999999   #999999   #151515
+client.unfocused         #151515   #151515   #999999   #999999   #151515
 #client.urgent           #2E344000 #2E344000 #2E344000 #2E344000 #2E344000
 #client.placeholder      #2E344000 #2E344000 #2E344000 #2E344000 #2E344000
 
@@ -368,18 +368,6 @@ client.unfocused        #151515   #151515   #999999   #999999   #151515
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
-    #position top
-
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    #status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
-    
-    # Material purple 800
-    #colors {
-    #    statusline #CCCCCC
-    #    background #38006B
-    #    inactive_workspace #FFFF0000 #FF00FF00 #0000FF
-    #}
     swaybar_command waybar
 }
 
