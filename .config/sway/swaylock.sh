@@ -1,0 +1,34 @@
+#!/bin/sh
+
+swaylock \
+    --screenshots \
+	--clock \
+	--effect-blur 7x5 \
+	--effect-vignette 0.5:0.5 \
+	--indicator \
+	--indicator-radius 100 \
+	--indicator-thickness 7 \
+	--font 'monospace' \
+	--inside-color cd53ba84 \
+	--ring-color cd53ba84 \
+	--inside-clear-color b4d83474 \
+	--ring-clear-color a8c62d84 \
+	--inside-ver-color 338cdd74 \
+	--ring-ver-color 2b7aca84 \
+	--inside-wrong-color c73f3074 \
+	--ring-wrong-color b6372a84 \
+	--bs-hl-color a8c62d84 \
+	--key-hl-color 991b4b \
+	--line-color 00000000 \
+	--line-clear-color 00000000 \
+	--line-caps-lock-color 00000000 \
+	--line-ver-color 00000000 \
+	--line-wrong-color 00000000 \
+	--separator-color 00000000 \
+	--text-color 000000DE \
+	--text-clear-color 000000DE \
+	--text-ver-color 000000DE \
+	--text-wrong-color 000000DE \
+	--ring-color ce5076 \
+	--grace 100 \
+	--fade-in 0.2;
