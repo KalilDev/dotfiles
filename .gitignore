@@ -3,6 +3,10 @@
 .config/cmus/playlists/
 .config/cmus/search-history
 .config/sway/config
+.config/mako/config
+.config/wallpaper/wall.png
+.config/waybar/style.css
+.config/wlogout/style.css
 
 
 get_focused_node/build
