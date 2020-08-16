@@ -1,15 +1,30 @@
 # KalilDev's dotfiles
 
 ## Colorscheme
-### Primary
+
+### Light
+
+#### Primary color
 * Default: <span style="background: #6A1B9A">#6A1B9A</span>
 * Lighter: <span style="background: #9C4DCC;color: rgba(0,0,0,0.87)">#9C4DCC</span>
 * Darker: <span style="background: #38006B">#38006B</span>
 
-### Secondary
+#### Secondary color
 * Default: <span style="background: #9A1B8B">#9A1B8B</span>
 * Lighter: <span style="background: #CE53BB;color: rgba(0,0,0,0.87)">#CE53BB</span>
 * Darker: <span style="background: #68005D">#68005D</span>
+
+### Dark
+
+#### Primary color
+* Default: <span style="background: #ba68c8;color: rgba(0,0,0,0.87)">#ba68c8</span>
+* Lighter: <span style="background: #ee98fb;color: rgba(0,0,0,0.87)">#ee98fb</span>
+* Darker: <span style="background: #883997">#883997</span>
+
+#### Secondary color
+* Default: <span style="background: #c868a6;color: rgba(0,0,0,0.87)">#c868a6</span>
+* Lighter: <span style="background: #fd98d7;color: rgba(0,0,0,0.87)">#fd98d7</span>
+* Darker: <span style="background: #953977">#953977</span>
 
 ## TODO
 
