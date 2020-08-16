@@ -6,9 +6,9 @@
 }
 
 window#waybar {
-    background: #991b8a;
+    background: #6A1B9A;
     color: white;
-    border-radius: 12px;
+    border-radius: 8px;
 }
 
 #window {
@@ -25,26 +25,26 @@ window#waybar {
 }
 
 #workspaces button:hover {
-    background: rgba(185, 104, 199, 0.4);
-    border: 2px solid #b968c7;
-    border-radius: 12px;
+    background: rgba(56, 0, 107, 0.4);
+    border: 2px solid #9C4DCC;
+    border-radius: 8px;
 }
 
 #workspaces button.focused {
-    color: #b968c7;
+    color: #af57e6;
     border: 2px solid transparent;
-    border-right: 2px solid #b968c7;
+    border-right: 2px solid #af57e6;
 }
 #workspaces button.focused:hover {
     border: 2px solid transparent;
-    border-right: 2px solid #b968c7;
-    border-radius: 12px;
+    border-right: 2px solid #9C4DCC;
+    border-radius: 8px;
 }
 
 #mode {
-    background: #b968c7;
+    background: #9C4DCC;
     color: rgba(0,0,0,0.87);
-    border-bottom: 3px solid #691b99;
+    border-bottom: 3px solid #68005D;
 }
 
 #clock, #battery, #cpu, #memory, #network, #pulseaudio, #custom-updates, #custom-spotify, #tray, #mode {
@@ -61,7 +61,7 @@ window#waybar {
 }
 
 #battery icon {
-    color: red;
+    color: #d4554a;
 }
 
 #battery.charging {
@@ -85,7 +85,7 @@ window#waybar {
 
 #battery.critical:not(.charging) {
     color: white;
-    background: #f53c3c;
+    background: #d4554a;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
