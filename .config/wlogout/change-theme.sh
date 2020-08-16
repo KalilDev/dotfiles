@@ -22,3 +22,8 @@ if [[ -e "$file.css" ]]; then
 fi
 
 ln -s "$file-$theme.css" "$file.css"
+if [[ $? -eq 0 ]]; then
+    echo "$(basename "$folder") is now $theme"
+else
+    echo "couldn't change $(basename "$folder") theme"
+fi
