@@ -1,6 +1,18 @@
 # KalilDev's dotfiles
 
+## Colorscheme
+### Primary
+* Default: <span style="background: #6A1B9A">#6A1B9A</span>
+* Lighter: <span style="background: #9C4DCC;color: rgba(0,0,0,0.87)">#9C4DCC</span>
+* Darker: <span style="background: #38006B">#38006B</span>
+
+### Secondary
+* Default: <span style="background: #9A1B8B">#9A1B8B</span>
+* Lighter: <span style="background: #CE53BB;color: rgba(0,0,0,0.87)">#CE53BB</span>
+* Darker: <span style="background: #68005D">#68005D</span>
+
 ## TODO
+
 * Find an good network manager
 * Add screenshots to the readme
 * GTK and Qt themes
