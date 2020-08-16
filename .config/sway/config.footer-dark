@@ -1,0 +1,9 @@
+## Dark
+# class                   border      backgr.     text        indicator   child_border
+client.focused           "#c868a6"   "#c868a6"   "#000000E6" "#000000E6" "#fd98d7"
+#client.focused_inactive "#242424"   "#24242400" "#24242400" "#24242400" "#24242400" 
+client.unfocused         "#151515"   "#151515"   "#999999"   "#999999"   "#151515"
+#client.urgent           "#2E344000" "#2E344000" "#2E344000" "#2E344000" "#2E344000"
+#client.placeholder      "#2E344000" "#2E344000" "#2E344000" "#2E344000" "#2E344000"
+
+include /etc/sway/config.d/*

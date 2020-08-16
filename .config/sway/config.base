@@ -4,11 +4,6 @@
 #
 # Read `man 5 sway` for a complete reference.
 
-## Pre-initialization
-# Create the socket used by wob and start it
-set $fancyWob wob --bar-color "#E66A1B9A" --border-color "#FF650024" --background-color "#E69A1B8B" -H 30 -b 0 -p 5 -M 0 -a top
-exec mkfifo $SWAYSOCK.wob && tail -f $SWAYSOCK.wob | clampstdout | $fancyWob
-
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
@@ -20,6 +15,7 @@ set $up k
 set $right l
 
 # Programs
+
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 set $term alacritty
@@ -29,7 +25,7 @@ set $menu rofi -show-icons -show drun | xargs swaymsg exec --
 set $dmenu rofi -show run | xargs swaymsg exec --
 set $musicLibrary swaymsg exec "alacritty -e 'cmus'"
 set $calculator swaymsg exec liri-calculator
-set $fancySwayLock $HOME/.config/sway/swaylock.sh
+set $fancySwayLock $HOME/.config/sway/swaylock.sh $theme
 
 # Helpers
 set $pactlSink @DEFAULT_SINK@
@@ -117,6 +113,9 @@ input * {
 
 
 ### Init programs
+# Create the socket used by wob and start it
+exec mkfifo $SWAYSOCK.wob
+exec_always --no-startup-id "$HOME/.config/sway/start-wob.sh" $theme
 exec_always --no-startup-id flashfocus
 exec --no-startup-id autotiling
 exec --no-startup-id blueman-applet
@@ -317,20 +316,12 @@ mode "screenshot" {
 bindsym $mod+c mode "screenshot"
 
 # Styles
-# According to https://material.io/design/layout/responsive-layout-grid.html
 gaps outer 12
 gaps inner 24
 smart_gaps on
 smart_borders on
 
 default_border pixel 2
-
-# class                  border    backgr.   text      indicator child_border
-client.focused           #9A1B8B   #9A1B8B   #DDDDDD   #DDDDDD   #CE53BB
-#client.focused_inactive #242424   #24242400 #24242400 #24242400 #24242400 
-client.unfocused         #151515   #151515   #999999   #999999   #151515
-#client.urgent           #2E344000 #2E344000 #2E344000 #2E344000 #2E344000
-#client.placeholder      #2E344000 #2E344000 #2E344000 #2E344000 #2E344000
 
 #
 # Status Bar:
@@ -343,4 +334,3 @@ bar {
 # Font for window titles and bar.
 font pango:monospace 10
 
-include /etc/sway/config.d/*
