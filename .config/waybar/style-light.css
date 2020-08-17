@@ -22,6 +22,7 @@ window#waybar {
     transition: all;
     transition-duration: 200ms;
     border: 2px solid transparent;
+    color: white;
 }
 
 #workspaces button:hover {
