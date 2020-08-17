@@ -1,1 +1,10 @@
 set $theme dark
+
+set $gnome-schema org.gnome.desktop.interface
+
+exec_always {
+    gsettings set $gnome-schema gtk-theme 'Matcha-dark-sea'
+    gsettings set $gnome-schema icon-theme 'Papirus-Dark-Maia'
+    gsettings set $gnome-schema cursor-theme 'capitaine-cursors'
+}
+

@@ -1,1 +1,10 @@
 set $theme light
+
+set $gnome-schema org.gnome.desktop.interface
+
+exec_always {
+    gsettings set $gnome-schema gtk-theme 'Matcha-sea'
+    gsettings set $gnome-schema icon-theme 'Papirus-Maia'
+    gsettings set $gnome-schema cursor-theme 'capitaine-cursors-light'
+}
+
