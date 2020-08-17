@@ -64,8 +64,8 @@ output "eDP-1" {
     mode 1366x768@60.063999Hz
     position 0 312
     subpixel rgb
+    transform 180
 }
-output "eDP-1" transform 180 clockwise
 output "HDMI-A-1" {
     mode 1920x1080@60.000000Hz
     position 1366 0
@@ -117,6 +117,7 @@ input * {
 # Create the socket used by wob and start it
 exec mkfifo $SWAYSOCK.wob
 exec_always --no-startup-id "$HOME/.config/sway/start-wob.sh" $theme
+exec --no-startup-id "$HOME/dotfiles/theme-manager.sh"
 exec_always --no-startup-id flashfocus
 exec --no-startup-id autotiling
 exec --no-startup-id blueman-applet
@@ -317,6 +318,21 @@ mode "screenshot" {
     bindsym $mod+c mode "default"
 }
 bindsym $mod+c mode "screenshot"
+
+#
+# Theme changing
+#
+mode "theme" {
+    bindsym w exec echo "light" > /run/user/1000/sway-theme
+    bindsym d exec echo "dark" > /run/user/1000/sway-theme
+
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+t mode "default"
+}
+bindsym $mod+t mode "theme"
+
 
 # Styles
 gaps outer 12
