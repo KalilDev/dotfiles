@@ -105,6 +105,7 @@ ttf-roboto-slab
 
 ### Sway config deps
 ```
+capitaine-cursors
 clampstdout (distributed on this repo)
 wob
 rofi (rofi-lbonn-wayland-git)
