@@ -2,14 +2,19 @@
 
 theme="$1"
 
+# If the way socket could not be created, exit
 if [[ ! -e "$SWAYSOCK.wob" ]]; then
     exit 1
 fi
 
+# Kill the currently running wob by closing the socket
+fuser -TERM -k $SWAYSOCK.wob
+
+# Start wob listening to the socket
 if [[ "$theme" = "light" ]]; then
     ## light
     tail -f "$SWAYSOCK.wob" | clampstdout | wob \
-        --bar-color "#E66A1B9A" \
+        --bar-color "#E6FFFFFF" \
         --border-color "#FF650024" \
         --background-color "#E69A1B8B" \
         -H 30 \
@@ -20,7 +25,7 @@ if [[ "$theme" = "light" ]]; then
 elif [[ "$theme" = "dark" ]]; then
     ## dark
     tail -f "$SWAYSOCK.wob" | clampstdout | wob \
-        --bar-color "#E6ba68c8" \
+        --bar-color "#E6000000" \
         --border-color "#FF953977" \
         --background-color "#E6c868a6" \
         -H 30 \
