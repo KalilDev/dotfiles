@@ -123,6 +123,8 @@ exec --no-startup-id autotiling
 exec --no-startup-id blueman-applet
 exec --no-startup-id mako
 exec_always --no-startup-id makoctl reload
+exec --no-startup-id /usr/lib/kdeconnectd
+exec --no-startup-id kdeconnect-indicator
 
 ### Key bindings
 

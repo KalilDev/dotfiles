@@ -30,8 +30,7 @@
 
 * Find an good network manager
 * Add screenshots to the readme
-* GTK and Qt themes
-* Icon theme
+* Qt themes
 * Make an custom rofi theme
 * rot8 for auto-rotation
 * IME on waybar
@@ -42,7 +41,6 @@
 * move wallpaper to .config
 * an session manager
 * brightness
-* wlogout custom theme
 
 ## Dependencies
 These packages need to be installed for the configurations to work properly.
@@ -126,6 +124,7 @@ flashfocus (flashfocus-git)
 autotiling
 waybar
 pango
+kdeconnect
 ```
 ## Waybar config deps
 ```
