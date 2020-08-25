@@ -23,12 +23,40 @@ window:
     x: 16
     y: 16
 
-# Colors (Tomorrow Night)
+# Colors
 colors:
   # Default colors
   primary:
-    background: '#201c21'
-    foreground: '#dddddd'
+    background: '0x1f1820'
+    foreground: '0xf6ebf7'
+
+  # Normal colors
+  bright:
+    black:   '0x261e29'
+    red:     '0xd0455a'
+    green:   '0x60be4c'
+    yellow:  '0xb3a362'
+    blue:    '0x7048bd'
+    magenta: '0xba4794'
+    cyan:    '0x80ddea'
+    white:   '0xcccccc'
+
+  # Bright colors
+  normal:
+    black:   '0x3b2f40'
+    red:     '0xc86876'
+    green:   '0x76c868'
+    yellow:  '0xc8ba68'
+    blue:    '0x8a68c8'
+    magenta: '0xc868a6'
+    cyan:    '0xb2ebf2'
+    white:   '0xeeeeee'
+
+
+  # Default colors
+  #primary:
+  #  background: '#201c21'
+  #  foreground: '#dddddd'
 
     # Bright and dim foreground colors
     #
