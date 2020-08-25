@@ -6,6 +6,9 @@ if [[ ! -e "$pipe" ]]; then
     mkfifo $pipe
 fi
 
+# Kill the currently running theme manager
+fuser -TERM -k $pipe
+
 while read theme; do
     "$HOME/dotfiles/change-all-themes.sh" $theme
     swaymsg reload
