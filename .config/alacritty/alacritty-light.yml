@@ -36,7 +36,7 @@ colors:
     red:     '0xf44236'
     green:   '0x70bd2d'
     yellow:  '0xd5a326'
-    blue:    '0x9a1b8b'
+    blue:    '0x7b20b3'
     magenta: '0xc42255'
     cyan:    '0x35e2e5'
     white:   '0x1a1a1a'
@@ -47,7 +47,7 @@ colors:
     red:     '0xd32e2f'
     green:   '0x4c9a1b'
     yellow:  '0x9a691b'
-    blue:    '0x7d107f'
+    blue:    '0x49148c'
     magenta: '0x9a1b4c'
     cyan:    '0x00d3de'
     white:   '0x000000'
@@ -170,7 +170,7 @@ cursor:
   #   - ▇ Block
   #   - _ Underline
   #   - | Beam
-  style: Beam
+  style: Block
 
   # Vi mode cursor style
   #
