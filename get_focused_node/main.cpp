@@ -39,31 +39,34 @@ boost::optional<json> get_node_recursive(json root, testFunc *test)
         return boost::optional<json>(root);
     }
 
-    auto it_children = root.find("nodes");
+    // These keys may contain children
+    std::vector<json::iterator> children_iterators = {root.find("nodes"), root.find("floating_nodes")};
 
-    // Node should contain children
-    if (it_children == root.end())
+    for (auto it_children : children_iterators)
     {
-        return boost::none;
-    }
-
-    auto children = *it_children;
-
-    // Children should be an array of nodes
-    if (!children.is_array())
-    {
-        return boost::none;
-    }
-
-    // Walk down the children recursively until an node that passes the test is
-    // found
-    for (json::iterator it = children.begin(); it != children.end(); ++it)
-    {
-        auto child = *it;
-        auto maybe_passed = get_node_recursive(child, test);
-        if (maybe_passed != boost::none)
+        // Skip if the iterator is empty
+        if (it_children == root.end())
         {
-            return maybe_passed;
+            continue;
+        }
+        auto children = *it_children;
+
+        // Children should be an array of nodes
+        if (!children.is_array())
+        {
+            continue;
+        }
+
+        // Walk down the children recursively until an node that passes the test is
+        // found
+        for (json::iterator it = children.begin(); it != children.end(); ++it)
+        {
+            auto child = *it;
+            auto maybe_passed = get_node_recursive(child, test);
+            if (maybe_passed != boost::none)
+            {
+                return maybe_passed;
+            }
         }
     }
 
