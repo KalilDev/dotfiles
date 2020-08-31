@@ -7,8 +7,10 @@ if [[ ! -e "$SWAYSOCK.wob" ]]; then
     exit 1
 fi
 
-# Kill the currently running wob by closing the socket
-fuser -TERM -k $SWAYSOCK.wob
+# Kill the currently running wob by sending EXIT to clampstdout
+if [[ $(fuser $SWAYSOCK.wob) ]]; then
+    echo "EXIT" >> "$SWAYSOCK.wob";
+fi
 
 # Start wob listening to the socket
 if [[ "$theme" = "light" ]]; then

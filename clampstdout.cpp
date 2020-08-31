@@ -32,12 +32,18 @@ int main(int argc, char **argv)
    std::string tp;
    while (std::getline(std::cin, tp))
    {
+      // Exit on command. This SHOULD kill wob too. at least i hope so
+      if (tp == "EXIT") {
+          std::cerr << "DEBUG: Exit signal received" << std::endl;
+          return 0;
+      }
       try
       {
          // Convert the input to string
          int converted = std::stoi(tp);
          int clamped = converted > max ? max : converted < min ? min : converted;
-         std::cout << clamped << "\n"; // Clamp the value
+         std::cout << clamped << std::endl; // Clamp the value
+         std::cerr << "DEBUG: clamped=\'" << clamped << "\'" << std::endl;
       }
       catch (...)
       {
