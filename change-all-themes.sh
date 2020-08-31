@@ -8,4 +8,4 @@ if [[ "$theme" != "light" && "$theme" != "dark" ]]; then
     exit 1
 fi
 
-find "$folder" -type f -name "change-theme.sh" -exec sh -c "{} $theme" \;
+find "$folder" -type f -name "change-theme.sh" -exec sh -c "{} $theme &" \;
