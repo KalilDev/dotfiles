@@ -5,8 +5,8 @@ set $gnome-schema org.gnome.desktop.interface
 seat seat0 xcursor_theme "capitaine-cursors"
 
 exec_always {
-    gsettings set $gnome-schema gtk-theme 'Matcha-dark-sea'
-    gsettings set $gnome-schema icon-theme 'Papirus-Dark-Maia'
+    gsettings set $gnome-schema gtk-theme 'Materia-dark-compact'
+    gsettings set $gnome-schema icon-theme 'Papirus-Dark'
     gsettings set $gnome-schema cursor-theme 'capitaine-cursors'
 }
 
