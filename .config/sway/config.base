@@ -133,30 +133,31 @@ exec --no-startup-id kdeconnect-indicator
 #
 
 # Fn + F1  (Music library)
-bindcode 179 $musicLibrary
+bindsym XF86Tools $musicLibrary
 # Fn + F2  (Volume -)
-bindcode 122 $volMinus
+bindsym XF86AudioLowerVolume $volMinus
 # Fn + F3  (Volume +)
-bindcode 123 $volPlus
+bindsym XF86AudioRaiseVolume $volPlus
 # Fn + F4  (Volume mute)
-bindcode 121 $volMute
+bindsym XF86AudioMute $volMute
 
 # Fn + F5  (Media stop)
-bindcode 174 $mediaStop
+bindsym XF86AudioStop $mediaStop
 # Fn + F6  (Media Previous)
-bindcode 173 $mediaPrev
+bindsym XF86AudioPrev $mediaPrev
 # Fn + F7  (Media Play/Pause)
-bindcode 172 $mediaToggle
+bindsym XF86AudioPlay $mediaToggle
+bindsym XF86AudioPause $mediaToggle
 # Fn + F8  (Media Next)
-bindcode 171 $mediaNext
+bindsym XF86AudioNext $mediaNext
 
 # Fn + F9  (Mail)
-#bindcode 163 exec
+#bindsym XF86Mail exec
 # Fn + F10 (Home)
-#bindcode 180 exec
+#bindsym XF86HomePage exec
 # Fn + F11 (Lock the keyboard) ## impossible to use
 # Fn + F12 (Calculator)
-bindcode 148 $calculator
+bindsym XF86Calculator $calculator
 
 #
 # Basics:
