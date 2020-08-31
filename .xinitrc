@@ -4,12 +4,13 @@
 #
 # Executed by startx (run your window manager from here)
 
+xprofile=$HOME/.xprofile
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
 
-DEFAULT_SESSION=gnome-session
+DEFAULT_SESSION=sway
 
 # merge in defaults and keymaps
 
@@ -30,6 +31,7 @@ if [ -f "$usermodmap" ]; then
 fi
 
 # start some nice programs
+[ -f "$xprofile" ] && . "$xprofile"
 
 if [ -d /etc/X11/xinit/xinitrc.d ] ; then
     for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
