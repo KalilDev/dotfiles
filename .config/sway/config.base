@@ -24,8 +24,9 @@ set $term alacritty
 set $menu rofi -show-icons -show drun | xargs swaymsg exec --
 #set $dmenu dmenu_path | dmenu | xargs swaymsg exec --
 set $dmenu rofi -show run | xargs swaymsg exec --
-set $musicLibrary swaymsg exec "alacritty -e 'cmus'"
-set $calculator swaymsg exec liri-calculator
+set $musicLibrary exec $term --class "cmus" -e "cmus"
+set $cava exec $term --class "cava" -e "cava"
+set $calculator /home/pedro/projects/calculator/build/linux/x64/release/bundle/calculator | xargs swaymsg exec --
 set $fancySwayLock $HOME/.config/sway/swaylock.sh $theme
 
 # Helpers
@@ -42,10 +43,11 @@ set $mediaStop exec playerctl stop
 set $mediaPrev exec playerctl previous
 set $mediaToggle exec playerctl play-pause
 set $mediaNext exec playerctl next
-set $captureAll exec grim
-set $captureFocused exec grim -g "$(swaymsg -t get_tree | getFocusedNode -s)"
-set $captureMonitor exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name')
-set $captureRegion exec grim -g "$(slurp)"
+set $cap exec cd $HOME/Imagens/Screenshots && grim
+set $captureAll $cap
+set $captureFocused $cap -g "$(swaymsg -t get_tree | getFocusedNode -s)"
+set $captureMonitor $cap -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name')
+set $captureRegion $cap -g "$(slurp)"
 
 ### Output configuration
 # Wallpaper
@@ -62,13 +64,13 @@ output * bg $HOME/.config/wallpaper/wall.png fill
 #
 output "eDP-1" {
     mode 1366x768@60.063999Hz
-    position 0 312
+    position 0 554
     subpixel rgb
-    transform 180
+    transform 90
 }
 output "HDMI-A-1" {
     mode 1920x1080@60.000000Hz
-    position 1366 0
+    position 768 0
     subpixel rgb
 }
 ### Idle configuration
@@ -88,8 +90,10 @@ exec swayidle -w \
 # Read `man 5 sway-input` for more information about this section.
 #
 # Enable drag and drop
+# Map to the laptop display
 input "1267:1071:ELAN_Touchscreen" {
     drag enabled
+    map_to_output eDP-1
 }
 # Touchpad configuration
 # Make the acceleration adaptative
@@ -107,24 +111,27 @@ input "1739:30171:DLL0675:00_06CB:75DB_Touchpad" {
     middle_emulation enabled
 }
 input * {
-    xkb_layout us,us,br
-    xkb_variant intl,,
+    xkb_layout us,us,us,br
+    xkb_variant intl,colemak,,
     xkb_options grp:sclk_toggle
 }
-
+input "1:1:AT_Translated_Set_2_keyboard" {
+    xkb_layout br
+}
 
 ### Init programs
 # Create the socket used by wob and start it
 exec mkfifo $SWAYSOCK.wob
 exec_always --no-startup-id "$HOME/.config/sway/start-wob.sh" $theme
 exec --no-startup-id "$HOME/dotfiles/theme-manager.sh"
-exec_always --no-startup-id flashfocus
 exec --no-startup-id autotiling
 exec --no-startup-id blueman-applet
 exec --no-startup-id mako
 exec_always --no-startup-id makoctl reload
 exec --no-startup-id /usr/lib/kdeconnectd
 exec --no-startup-id kdeconnect-indicator
+exec --no-startup-id rot8
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 ### Key bindings
 
@@ -133,7 +140,7 @@ exec --no-startup-id kdeconnect-indicator
 #
 
 # Fn + F1  (Music library)
-bindsym XF86Tools $musicLibrary
+bindsym --release XF86Tools $musicLibrary
 # Fn + F2  (Volume -)
 bindsym XF86AudioLowerVolume $volMinus
 # Fn + F3  (Volume +)
@@ -157,7 +164,16 @@ bindsym XF86AudioNext $mediaNext
 #bindsym XF86HomePage exec
 # Fn + F11 (Lock the keyboard) ## impossible to use
 # Fn + F12 (Calculator)
-bindsym XF86Calculator $calculator
+bindsym --release XF86Calculator $calculator
+
+# Laptop bindings
+# Search button (F9)
+bindsym --release XF86Search fullscreen disable, exec $menu
+# Lower Brightness button (F11)
+bindsym XF86MonBrightnessDown exec light -U 5
+# Increase Brightness button (F12)
+bindsym XF86MonBrightnessUp exec light -A 5
+# Disable connectivity (Fn + Print)
 
 #
 # Basics:
@@ -167,11 +183,12 @@ bindsym XF86Calculator $calculator
 
     # Kill focused window
     # default: bindsym $mod+Shift+q kill
+    bindsym $mod+Shift+q kill
     bindsym Alt+F4 kill
 
     # Start your launcher
-    bindsym $mod+d exec $menu
-    bindsym $mod+Shift+d exec $dmenu
+    bindsym $mod+d fullscreen disable, exec $menu
+    bindsym $mod+Shift+d fullscreen disable, exec $dmenu
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -305,7 +322,7 @@ bindsym $mod+r mode "resize"
 mode "screenshot" {
     # Capture to clipboard
     bindsym q $captureAll $toClipboard
-    bindsym w $captureFocused $toClipboard && flash_window
+    bindsym w $captureFocused $toClipboard
     bindsym e $captureMonitor $toClipboard
     bindsym r $captureRegion $toClipboard
 
@@ -356,3 +373,15 @@ bar {
 # Font for window titles and bar.
 font pango:monospace 10
 
+# Programs which have special behavior
+#set $player_moves floating enable, move container to workspace 1, move left 240px
+set $player_moves layout splith, $cava
+for_window [app_id="io.liri.Calculator"] floating enable
+for_window [app_id="calculator"] floating enable, resize set 350px 600px
+for_window [app_id="cmus"] $player_moves
+for_window [instance="spotify"] $player_moves
+for_window [title="win0"] floating enable, move container to workspace 1
+for_window [title=".*Sharing Indicator.*"] floating enable
+for_window [title="Open Folder"] floating enable
+for_window [title=".*Close tabs?.*"] floating enable
+for_window [app_id="demostudo_app"] move right

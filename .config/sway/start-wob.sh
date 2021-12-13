@@ -7,9 +7,16 @@ if [[ ! -e "$SWAYSOCK.wob" ]]; then
     exit 1
 fi
 
-# Kill the currently running wob by sending EXIT to clampstdout
-if [[ $(fuser $SWAYSOCK.wob) ]]; then
+# Check if any processes are running wob
+fuser $SWAYSOCK.wob 2>/dev/null
+
+# If the program didnt exit with 0, there probably are
+if [[ $? -eq 0 ]]; then
+    # Kill the currently running wob by sending EXIT to clampstdout
+    echo "Tried to exit" >> /home/pedro/wobdbg
     echo "EXIT" >> "$SWAYSOCK.wob";
+else
+    echo "Didnt try to exit" >> /home/pedro/wobdbg
 fi
 
 # Start wob listening to the socket

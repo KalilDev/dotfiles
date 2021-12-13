@@ -25,7 +25,7 @@ bool is_focused(json json)
 
 typedef bool testFunc(json json);
 
-boost::optional<json> get_node_recursive(json root, testFunc *test)
+boost::optional<json> get_node_recursive(json root, testFunc *test, bool get_parents)
 {
     // Root needs to be an node
     if (!root.is_object())
@@ -42,6 +42,7 @@ boost::optional<json> get_node_recursive(json root, testFunc *test)
     // These keys may contain children
     std::vector<json::iterator> children_iterators = {root.find("nodes"), root.find("floating_nodes")};
 
+    boost::optional<json> result = boost::none;
     for (auto it_children : children_iterators)
     {
         // Skip if the iterator is empty
@@ -59,19 +60,38 @@ boost::optional<json> get_node_recursive(json root, testFunc *test)
 
         // Walk down the children recursively until an node that passes the test is
         // found
-        for (json::iterator it = children.begin(); it != children.end(); ++it)
+        std::vector<int> to_remove;
+        for (auto &it : children.items())
         {
-            auto child = *it;
-            auto maybe_passed = get_node_recursive(child, test);
+            auto child = it.value();
+            auto maybe_passed = get_node_recursive(child, test, get_parents);
+            
+            // Boom, found it
             if (maybe_passed != boost::none)
             {
-                return maybe_passed;
+                if (!get_parents) {
+                    return maybe_passed;
+                }
+                result = maybe_passed;
+            } else {
+                to_remove.push_back(stoi(it.key()));
             }
         }
+
+        // Iterate backwards to remove the nodes that aren't used
+        std::sort(to_remove.rbegin(), to_remove.rend());
+        for (int &it : to_remove) {
+            children.erase(it);
+        }
+
+    }
+    // Couldn't find a node that satisfies the test
+    if (result == boost::none) {
+        return boost::none;
     }
 
-    // Couldn't find a node that satisfies the test
-    return boost::none;
+    // An child satisfied the test
+    return root;
 }
 
 static const std::string help_message =
@@ -87,8 +107,13 @@ int main(const int argc, const char *argv[])
         // Parse all the options
         bool slurp = false;
         bool raw = false;
+        bool get_parents = false;
         po::options_description desc{help_message};
-        desc.add_options()("help,h", "Help screen")("slurp,s", po::bool_switch(&slurp), "Output the node's \"rect\" in an slurp-like manner.")("raw,r", po::bool_switch(&raw), "Output the node's raw json representation.")("key,k", po::value<std::string>(), "Output the selected key (if it exists on the node)");
+        desc.add_options()("help,h", "Help screen")
+        ("slurp,s", po::bool_switch(&slurp), "Output the node's \"rect\" in an slurp-like manner.")
+        ("raw,r", po::bool_switch(&raw), "Output the node's raw json representation.")
+        ("key,k", po::value<std::string>(), "Output the selected key (if it exists on the node)")
+        ("parents,p", po::bool_switch(&get_parents), "Output not only the node but also it's parents (sanitized).");
 
         po::variables_map vm;
         store(parse_command_line(argc, argv, desc), vm);
@@ -106,7 +131,7 @@ int main(const int argc, const char *argv[])
         std::cin >> nodes;
 
         // Find the node which satisfies the test
-        auto maybe_focused = get_node_recursive(nodes, is_focused);
+        auto maybe_focused = get_node_recursive(nodes, is_focused, get_parents);
 
         // Exit when none do
         if (maybe_focused == boost::none)

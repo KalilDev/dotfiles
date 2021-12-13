@@ -59,10 +59,11 @@ get_session(){
 		mate) dbus_args+=(mate-session) ;;
 		xfce) dbus_args+=(xfce4-session) ;;
 		openbox) dbus_args+=(openbox-session) ;;
+		sway) dbus_args+=(sway) ;;
+		wayfire) dbus_args+=(wayfire) ;;
 		*) dbus_args+=($DEFAULT_SESSION) ;;
 	esac
 
 	echo "dbus-launch ${dbus_args[*]}"
 }
-
-exec $(get_session)
+exec $(get_session $1)

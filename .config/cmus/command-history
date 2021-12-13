@@ -1,7 +1,68 @@
+rand
+q
+clear
+cllear
+1
+q!
+refresh 
+update-cache 
+sort
+set pl_sort=trac
+pl_sort
+u
+win-page-bottom
+load Músicas
+player-next
+pl-import Música/A/A.m3u8
+add Música/
+add
+refresh
+pl-import Música/B/.m3u8
+add Música/All Out 00s
+add Música/F
+add Música/E
+add Música/D
+add Música/C
+add Música/B
+vol 100
+vol 40
+col 40
+vol 10
+vol +
+vol 1
+vol -50
+vol
+vol -10
+clear 
+add /home/pedro/Música/Billie Eilish
+add "Música/Billie Eilish"
+add Música/Billie Eilish
+add Música/Billie\ Eilish
+update-cache
+player-pause
+shuffle 
+player-play
+seek +30
+seek +10
+set pl_sort=tracknumber
+set pl_sort tracknumber
+set pl_sort 
+set pl_sort (track_number)
+set pl_sort track_number
+factivate
+sort 
+help
+pl-export
+ls
+add /home/pedro/Música/
+add ~/Musíca
+pl-import /home/pedro/Música/Pink Floyd - The Division Bell/Pink Floyd - The Division Bell.m3u8
+import
+open
+log
+live-fi4
 set
 pl
-sort
-pl_sort
 pl_sort -tracknumber
 Sort
 sort -tracknumber
@@ -10,7 +71,6 @@ shuffle
 pl-import /home/pedrokalil/Música/Pink Floyd - Wish You Were Here/Pink Floyd - Wish You Were Here.m3u8
 pl-import /home/pedrokalil/Música/Pink Floyd - The Wall/Pink Floyd - The Wall.m3u8
 pl-rename Pink Floyd - The Division Bell
-help
 pl-remove
 pl-import /home/pedrokalil/Música/Pink Floyd - The Division Bell/PinkFloyd - The Division Bell.m3u8
 pl-import /home/pedrokalil/Música/Pink Floyd - The Dark Side of the Moon/Pink Floyd - Dark Side Of The Moon.m3u8

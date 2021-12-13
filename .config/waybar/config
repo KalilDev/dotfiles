@@ -6,6 +6,10 @@
     "modules-left": ["sway/workspaces", "sway/mode", "clock", "cpu", "memory"],
     "modules-center": ["sway/window"],
     "modules-right": ["custom/updates", "pulseaudio","network", "battery", "tray", "idle_inhibitor", "custom/power"],
+    "margin-top": 2,
+    "margin-bottom": 2,
+    "margin-right": 4,
+    "margin-left": 4,
     "sway/workspaces": {
         "disable-scroll": true,
         "all-outputs": false,
