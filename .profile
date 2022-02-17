@@ -20,7 +20,7 @@ export JRE_HOME="/usr/lib64/jvm/java-8-openjdk/jre"
 #export PROTON_USE_WINED3D=1
 export PATH="$PATH:/home/pedro/bin"
 export PATH="$PATH:/home/pedro/Android/Sdk/platform-tools"
-export PUB_HOSTED_URL=http://localhost:4000
+export PUB_HOSTED_URL=http://192.168.1.157:4000
 export FLUTTER_ROOT="/home/pedro/src/flutter"
 export PATH="$PATH:/home/pedro/src/depot_tools"
 
