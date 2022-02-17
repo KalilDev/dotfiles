@@ -108,6 +108,8 @@ ttf-roboto-slab
 capitaine-cursors
 clampstdout (distributed on this repo)
 wob
+clipman
+wl-paste
 rofi (rofi-lbonn-wayland-git)
 alacritty
 cmus
