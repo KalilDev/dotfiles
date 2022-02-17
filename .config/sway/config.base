@@ -48,12 +48,12 @@ set $captureAll $cap
 set $captureFocused $cap -g "$(swaymsg -t get_tree | getFocusedNode -s)"
 set $captureMonitor $cap -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name')
 set $captureRegion $cap -g "$(slurp)"
-set $resizeToPhoneLandscape floating enable; resize set width 1080px height 540px; move absolute position # TODO Width and height
-set $resizeToMediumPhoneLandscape floating enable; resize set width 960px height 480px; move absolute position # TODO Width and height
-set $resizeToSmallPhoneLandscape floating enable; resize set width 720px height 360px; move absolute position # TODO Width and height
-set $resizeToPhonePortrait floating enable; resize set width 540px height 1080px; move absolute position # TODO Width and height
-set $resizeToMediumPhonePortrait floating enable; resize set width 480px height 960px; move absolute position # TODO Width and height
-set $resizeToSmallPhonePortrait floating enable; resize set width 360px height 720px; move absolute position # TODO Width and height
+set $resizeToPhoneLandscape floating enable; resize set width 1080px height 540px; move absolute position 840px 56px
+set $resizeToMediumPhoneLandscape floating enable; resize set width 960px height 480px; move absolute position 960px 56px
+set $resizeToSmallPhoneLandscape floating enable; resize set width 720px height 360px; move absolute position 1200px 56px
+set $resizeToPhonePortrait floating enable; resize set width 540px height 1080px; move absolute position 2746px 0px
+set $resizeToMediumPhonePortrait floating enable; resize set width 480px height 960px; move absolute position 1440px 56px
+set $resizeToSmallPhonePortrait floating enable; resize set width 360px height 720px; move absolute position 1560px 56px
 set $showClipboardHistory clipman pick -t rofi
 
 ### Output configuration
