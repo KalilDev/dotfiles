@@ -393,12 +393,8 @@ bar {
 font pango:monospace 10
 
 # Programs which have special behavior
-#set $player_moves floating enable, move container to workspace 1, move left 240px
-set $player_moves layout splith, $cava
 for_window [app_id="io.liri.Calculator"] floating enable
 for_window [app_id="calculator"] floating enable, resize set 350px 600px
-for_window [app_id="cmus"] $player_moves
-for_window [instance="spotify"] $player_moves
 for_window [title="win0"] floating enable, move container to workspace 1
 for_window [title=".*Sharing Indicator.*"] floating enable
 for_window [title="Open Folder"] floating enable
