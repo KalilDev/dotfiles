@@ -71,13 +71,13 @@ output * bg $HOME/.config/wallpaper/wall.png fill
 #
 output "eDP-1" {
     mode 1366x768@60.063999Hz
-    position 0 554
+    position 0 312
     subpixel rgb
-    transform 90
+    transform 0
 }
 output "HDMI-A-1" {
     mode 1920x1080@60.000000Hz
-    position 768 0
+    position 1366 0
     subpixel rgb
 }
 ### Idle configuration
