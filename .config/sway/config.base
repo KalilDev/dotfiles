@@ -177,10 +177,6 @@ bindsym --release XF86Calculator $calculator
 # Laptop bindings
 # Search button (F9)
 bindsym --release XF86Search fullscreen disable, exec $menu
-# Lower Brightness button (F11)
-bindsym XF86MonBrightnessDown exec light -U 5
-# Increase Brightness button (F12)
-bindsym XF86MonBrightnessUp exec light -A 5
 # Disable connectivity (Fn + Print)
 
 #
