@@ -48,18 +48,38 @@ set $captureAll $cap
 set $captureFocused $cap -g "$(swaymsg -t get_tree | getFocusedNode -s)"
 set $captureMonitor $cap -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name')
 set $captureRegion $cap -g "$(slurp)"
-set $resizeToPhoneLandscape floating enable; resize set width 1080px height 540px; move absolute position # TODO Width and height
-set $resizeToMediumPhoneLandscape floating enable; resize set width 960px height 480px; move absolute position # TODO Width and height
-set $resizeToSmallPhoneLandscape floating enable; resize set width 720px height 360px; move absolute position # TODO Width and height
-set $resizeToPhonePortrait floating enable; resize set width 540px height 1080px; move absolute position # TODO Width and height
-set $resizeToMediumPhonePortrait floating enable; resize set width 480px height 960px; move absolute position # TODO Width and height
-set $resizeToSmallPhonePortrait floating enable; resize set width 360px height 720px; move absolute position # TODO Width and height
+set $resizeToPhoneLandscape floating enable; resize set width 1080px height 540px; move absolute position 2206px 56px
+set $resizeToMediumPhoneLandscape floating enable; resize set width 960px height 480px; move absolute position 2326px 56px
+set $resizeToSmallPhoneLandscape floating enable; resize set width 720px height 360px; move absolute position 2566px 56px
+set $resizeToPhonePortrait floating enable; resize set width 540px height 1080px; move absolute position 2746px 0px
+set $resizeToMediumPhonePortrait floating enable; resize set width 480px height 960px; move absolute position 2806px 56px
+set $resizeToSmallPhonePortrait floating enable; resize set width 360px height 720px; move absolute position 2926px 56px
 set $showClipboardHistory clipman pick -t rofi
 
 ### Output configuration
 # Wallpaper
 output * bg $HOME/.config/wallpaper/wall.png fill
 
+#
+# Multi-display configuration:
+#            +---------------+
+#            |               |
+# +----------+    HDMI-A-1   |
+# |  eDP-1   |               |
+# |          |               |
+# +----------+---------------+
+#
+output "eDP-1" {
+    mode 1366x768@60.063999Hz
+    position 0 312
+    subpixel rgb
+    transform 0
+}
+output "HDMI-A-1" {
+    mode 1920x1080@60.000000Hz
+    position 1366 0
+    subpixel rgb
+}
 ### Idle configuration
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
@@ -75,6 +95,29 @@ exec swayidle -w \
 ### Input configuration
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
+#
+# Enable drag and drop
+# Map to the laptop display
+input "1267:1071:ELAN_Touchscreen" {
+    drag enabled
+    map_to_output eDP-1
+}
+# Touchpad configuration
+# Make the acceleration adaptative
+# Disable with another mice
+# Disable while typing
+# Enable tap
+# Emulate middle button
+# Enable natural scroll
+input "1739:30171:DLL0675:00_06CB:75DB_Touchpad" {
+    accel_profile adaptive
+    events disabled_on_external_mouse
+    dwt enabled
+    tap enabled
+    natural_scroll enabled
+    middle_emulation enabled
+}
+
 input * {
     xkb_layout us,us,us,br
     xkb_variant intl,colemak,,
@@ -95,6 +138,7 @@ exec --no-startup-id mako
 exec_always --no-startup-id makoctl reload
 exec --no-startup-id /usr/lib/kdeconnectd
 exec --no-startup-id kdeconnect-indicator
+exec --no-startup-id rot8
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id wl-paste -p -t text --watch clipman store -P --histpath="~/.local/share/clipman-primary.json"
 
@@ -134,6 +178,10 @@ bindsym --release XF86Calculator $calculator
 # Laptop bindings
 # Search button (F9)
 bindsym --release XF86Search fullscreen disable, exec $menu
+# Lower Brightness button (F11)
+bindsym XF86MonBrightnessDown exec light -U 5
+# # Increase Brightness button (F12)
+bindsym XF86MonBrightnessUp exec light -A 5
 # Disable connectivity (Fn + Print)
 
 #
